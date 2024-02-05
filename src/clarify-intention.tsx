@@ -1,4 +1,14 @@
-import { Form, ActionPanel, Action, showToast, Toast, Clipboard, closeMainWindow, PopToRootType, getPreferenceValues } from "@raycast/api";
+import {
+  Form,
+  ActionPanel,
+  Action,
+  showToast,
+  Toast,
+  Clipboard,
+  closeMainWindow,
+  PopToRootType,
+  getPreferenceValues,
+} from "@raycast/api";
 import { useState } from "react";
 
 interface IntentionForm {
@@ -12,7 +22,10 @@ const { customMoods } = getPreferenceValues<{ customMoods: string }>();
 
 export default function IntentionClarifier() {
   const [mood, setMood] = useState<string[]>([]);
-  const moods = customMoods.split(",").map(mood => mood.trim()).filter(mood => mood !== "");
+  const moods = customMoods
+    .split(",")
+    .map((mood) => mood.trim())
+    .filter((mood) => mood !== "");
 
   return (
     <Form

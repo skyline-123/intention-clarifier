@@ -1,15 +1,11 @@
-import { Clipboard, List, showToast, Toast, ActionPanel, Action } from "@raycast/api"
+import { Clipboard, List, showToast, Toast, ActionPanel, Action } from "@raycast/api";
 import { useState } from "react";
 type CategoryType = { id: string; name: string };
 
 function CategoryDropdown(props: { categories: CategoryType[]; onCategoryChange: (newValue: string) => void }) {
   const { categories, onCategoryChange } = props;
   return (
-    <List.Dropdown
-      tooltip="Select Category"
-      storeValue={true}
-      onChange={onCategoryChange}
-    >
+    <List.Dropdown tooltip="Select Category" storeValue={true} onChange={onCategoryChange}>
       {categories.map((category) => (
         <List.Dropdown.Item key={category.id} title={category.name} value={category.id} />
       ))}
@@ -29,48 +25,48 @@ function SelectMoods() {
     {
       name: "Self-Improvement",
       moods: ["😌 calm", "📅 discipline", "⌛ patience"],
-      category: "personal-development"
+      category: "personal-development",
     },
     {
       name: "Learning and Growth",
       moods: ["🤔 curiosity", "🔄 reflection", "📊 analytical"],
-      category: "personal-development"
+      category: "personal-development",
     },
     {
       name: "Positive Mindset",
       moods: ["😄 optimism", "🚀 self-motivation", "🦸 courage"],
-      category: "personal-development"
+      category: "personal-development",
     },
     {
       name: "Task-Oriented",
       moods: ["🎯 focus", "🏋️ persistence", "⏱️ efficiency"],
-      category: "efficiency-and-execution"
+      category: "efficiency-and-execution",
     },
     {
       name: "Decision Making and Action",
       moods: ["💡 proactivity", "🤷‍♂️ decisiveness", "💼 determination"],
-      category: "efficiency-and-execution" // Replaced 💪 with 💼 to maintain uniqueness.
+      category: "efficiency-and-execution", // Replaced 💪 with 💼 to maintain uniqueness.
     },
     {
       name: "Adaptation and Innovation",
       moods: ["🌱 adaptability", "💡 innovation", "🧠 open-mindedness"], // Replaced 🔄 with 🌱 to maintain uniqueness.
-      category: "efficiency-and-execution"
+      category: "efficiency-and-execution",
     },
     {
       name: "Team Collaboration",
       moods: ["🤝 collaborative", "🗂️ organization", "🔗 responsibility"], // Replaced one 🤝 with 🔗 to maintain uniqueness.
-      category: "interpersonal-relationships-and-collaboration"
+      category: "interpersonal-relationships-and-collaboration",
     },
     {
       name: "Psychological Resilience",
       moods: ["🛡️ resilience", "✊ empowerment", "⚖️ balanced"], // Replaced 💪 with 🛡️ and ✊ to maintain uniqueness.
-      category: "interpersonal-relationships-and-collaboration"
+      category: "interpersonal-relationships-and-collaboration",
     },
     {
       name: "Creativity and Inspiration",
       moods: ["🎨 inspired"], // Changed 💡 to 🎨 to maintain the theme but ensure uniqueness.
-      category: "interpersonal-relationships-and-collaboration"
-    }
+      category: "interpersonal-relationships-and-collaboration",
+    },
   ];
 
   const onCategoryChange = (newValue: string) => {
@@ -94,9 +90,9 @@ function SelectMoods() {
   return (
     <List searchBarAccessory={<CategoryDropdown categories={categories} onCategoryChange={onCategoryChange} />}>
       {data
-        .filter(item => selectedCategory === "all" || selectedCategory === "" || item.category === selectedCategory)
+        .filter((item) => selectedCategory === "all" || selectedCategory === "" || item.category === selectedCategory)
         .map((item, index) => {
-          const {  moods, category } = item;
+          const { moods, category } = item;
           return (
             <List.Section key={index} title={category}>
               {moods.map((mood: string) => (
@@ -120,5 +116,5 @@ function SelectMoods() {
 }
 
 module.exports = {
-  default: SelectMoods
+  default: SelectMoods,
 };

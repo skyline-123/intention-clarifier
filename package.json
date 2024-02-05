@@ -13,7 +13,7 @@
     {
       "name": "clarify-intention",
       "title": "Clarify Intention",
-      "description": "Opens a form to help you clarify and articulate your intention behind a task, including your desired mood and reasoning. After filling out the form, you can choose to paste your intention into your current application or copy it to your clipboard.\n",
+      "description": "Opens a form to help you clarify and articulate your intention behind a task, including your desired mood and reasoning. After filling out the form, you can choose to paste your intention into your current application or copy it to your clipboard.",
       "mode": "view",
       "preferences": [
         {
